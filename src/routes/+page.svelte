@@ -2,6 +2,9 @@
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+
+	let a = 'a';
+	const changeB = () => a = 'b';
 </script>
 
 <svelte:head>
@@ -17,7 +20,8 @@
 				<img src={welcome_fallback} alt="Welcome" />
 			</picture>
 		</span>
-		hello world
+		hello world {a} <br/>
+		<button on:click={changeB}>change b</button>
 	</h1>
 
 	<h2>
