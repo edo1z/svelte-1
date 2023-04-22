@@ -5,6 +5,7 @@
 
 	let a = 'a';
 	const changeB = () => a = 'b';
+	$: b = a;
 </script>
 
 <svelte:head>
@@ -20,7 +21,7 @@
 				<img src={welcome_fallback} alt="Welcome" />
 			</picture>
 		</span>
-		hello world {a} <br/>
+		hello world {a} {b}<br/>
 		<button on:click={changeB}>change b</button>
 	</h1>
 
