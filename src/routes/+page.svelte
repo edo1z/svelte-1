@@ -3,9 +3,12 @@
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 
-	let a = 'a';
-	const changeB = () => a = 'b';
-	$: b = a;
+	let a = 5;
+	let c = 2;
+	$: b = calcB(a);
+	const changeA = () => a++;
+	const calcB = x => x * c;
+	const changeC = () => c++;
 </script>
 
 <svelte:head>
@@ -21,8 +24,10 @@
 				<img src={welcome_fallback} alt="Welcome" />
 			</picture>
 		</span>
-		hello world {a} {b}<br/>
-		<button on:click={changeB}>change b</button>
+		hello world<br/>
+		a:{a} b:{b} c:{c}<br/>
+		<button on:click={changeA}>change a</button>
+		<button on:click={changeC}>change c</button>
 	</h1>
 
 	<h2>
